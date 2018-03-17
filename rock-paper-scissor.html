@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>rock-paper-scisscr</title>
+</head>
+<body>
+
+<form>
+	<p>Please Type: rock, paper or scissor</p>
+	<input type="textbox" name="text" id="playersChoice">
+	<input type="submit" value="Submit" onclick="playRound()">
+</form>
+<script type="text/javascript">
+
+	function computerPlay (handMotions) {
+		return handMotions[Math.floor(Math.random()*handMotions.length)];
+	}
+		let handMotions = ['rock', 'paper', 'scissor'];
+
+	function playRound () {
+		let handMotions = ['rock', 'paper', 'scissor'];
+		let computerSelection = computerPlay(handMotions);
+		console.log(computerSelection);
+		let playerSelectionAnyCase = document.getElementById('playersChoice').value;
+		let playerSelection = playerSelectionAnyCase.toLowerCase();
+		console.log(playerSelection);
+
+		if (computerSelection=='rock' && playerSelection=='scissor') {
+			alert("You Lose! Try Again");
+		}
+		else if (computerSelection=='paper' && playerSelection=='rock') {
+			alert("You Lose! Try Again");	
+		}
+		else if (computerSelection=='scissor' && playerSelection=='paper') {
+			alert("You Lose! Try Again")
+		}
+		else if (computerSelection==playerSelection) {
+			alert("Tied! Try Again")
+		}
+		else {
+			alert("You Win!")
+		}
+
+	}
+
+</script>
+</body>
+</html>
