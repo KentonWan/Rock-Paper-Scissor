@@ -5,43 +5,61 @@
 </head>
 <body>
 
-<form>
-	<p>Please Type: rock, paper or scissor</p>
-	<input type="textbox" name="text" id="playersChoice">
-	<input type="submit" value="Submit" onclick="playRound()">
-</form>
 <script type="text/javascript">
 
 	function computerPlay (handMotions) {
 		return handMotions[Math.floor(Math.random()*handMotions.length)];
 	}
 		let handMotions = ['rock', 'paper', 'scissor'];
+		let playerScore = 0;
+		let computerScore = 0;
 
 	function playRound () {
 		let handMotions = ['rock', 'paper', 'scissor'];
 		let computerSelection = computerPlay(handMotions);
 		console.log(computerSelection);
-		let playerSelectionAnyCase = document.getElementById('playersChoice').value;
-		let playerSelection = playerSelectionAnyCase.toLowerCase();
+		let playerSelection = window.prompt("Rock, Paper or Scissor?", "pick one").toLowerCase();
 		console.log(playerSelection);
+		//let computerScore = 0;
+		//let playerScore = 0;
 
 		if (computerSelection=='rock' && playerSelection=='scissor') {
-			alert("You Lose! Try Again");
+			computerScore++;
 		}
 		else if (computerSelection=='paper' && playerSelection=='rock') {
-			alert("You Lose! Try Again");	
+			computerScore++;	
 		}
 		else if (computerSelection=='scissor' && playerSelection=='paper') {
-			alert("You Lose! Try Again")
+			computerScore++
 		}
 		else if (computerSelection==playerSelection) {
-			alert("Tied! Try Again")
 		}
 		else {
-			alert("You Win!")
+			playerScore++
 		}
 
 	}
+
+	function game () {
+		let gamesPlayed = 0;
+		for (var i=0; i < 6; i++)
+			if (gamesPlayed = i) {
+				playRound();
+				gamesPlayed++;
+			}
+		return console.log(playerScore, computerScore);
+	}
+
+	game()
+		if (playerScore > computerScore) {
+			alert("User Wins!")
+		}
+		else if (playerScore == computerScore) {
+			alert("Tied Game!")
+		}
+		else {
+			alert("Computer Wins!")
+		}
 
 </script>
 </body>
